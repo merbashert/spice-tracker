@@ -4,6 +4,7 @@ import Table from 'react-bootstrap/Table';
 import Modal from 'react-bootstrap/Modal';
 import SpiceForm from './Components/Spice_Form'
 
+import './Components/Spices.css';
 
 const App = props => {
 
@@ -66,7 +67,7 @@ const App = props => {
     useEffect(() => {
         fetchSpices()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [savedSpices])
+    }, [])
 
     return (
         <>
@@ -83,7 +84,7 @@ const App = props => {
         </Modal>
 
         <div id='add-box'>
-            <button onClick={() => handleShow()} id = 'add-random'>Add New</button><br/>
+            <button onClick={() => handleShow()} id = 'add-spice'>Add New</button><br/>
         </div>
 
         <Table>

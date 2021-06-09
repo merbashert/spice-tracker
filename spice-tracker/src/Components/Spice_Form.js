@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Button from 'react-bootstrap/Button';
+import button from 'react-bootstrap/button';
 
 
 const SpiceForm = props =>  {
@@ -21,31 +21,32 @@ const SpiceForm = props =>  {
         setCategory('')
         setDate_Purchased('')
     }
-    
+
     return (
         <form onSubmit={handleSubmit}>
         <label>
         Item:
         <input type="text" id="name" value={name} onChange={e => setName(e.target.value.toLowerCase())} required/>
         </label>
-
+        <br/>
         <label>
         Category:
         <select value={category} onChange={e => setCategory(e.target.value)} id="category" className='dropdown' required>
         <option value=""></option>
         <option value="basics">Basics</option>
-        <option value="spice_blends">Spice Blends</option>
+        <option value="spice blends">Spice Blends</option>
         <option value="novelty">Novelty</option>
         </select>
         </label>
+        <br/>
         <label>
-        Date Purchased (if known - YYYY/MM/DD):
+        Date Purchased (if known - YYYY-MM-DD):
         <input type="text" id="date_purchased" value={date_purchased} onChange={e => setDate_Purchased(e.target.value)}/>
         </label>
 
         <br/>
-        <Button type="submit" onClick={props.handleClose}>Put in the Box</Button>
-        <Button onClick={props.handleClose}>Cancel</Button>
+        <button type="submit" onClick={props.handleClose} size="sm">Put in the Cabinet</button>
+        <button onClick={props.handleClose} size="sm">Cancel</button>
         </form>
     )
 }
