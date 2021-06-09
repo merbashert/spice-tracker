@@ -35,7 +35,7 @@ const App = props => {
     }
 
     const handleCreateSpice = (spiceData) => {
-        fetch(`${props.baseUrl}/spices`, {
+        fetch(`${baseUrl}/spices`, {
             body: JSON.stringify(spiceData),
             method: 'POST',
             headers: {
@@ -52,14 +52,14 @@ const App = props => {
     }
 
     const handleDeleteSpice = (id) => {
-        fetch(`${props.baseUrl}/spices/${id}`, {
+        fetch(`${baseUrl}/spices/${id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
             }
         }).then(json => {
-            props.setSavedSpices(props.savedSpices.filter(savedSpice => savedSpice.id !== id))
+            setSavedSpices(savedSpices.filter(savedSpice => savedSpice.id !== id))
         }).catch(err=>console.log(err))
     }
 
@@ -71,35 +71,43 @@ const App = props => {
     return (
         <>
 
-            <Modal show={props.show} onHide={handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Add Random Item</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <div className='add-form'>
-                        <SpiceForm handleCreateSpice={handleCreateSpice} handleClose={handleClose}/>
-                    </div>
-                </Modal.Body>
-            </Modal>
+        <Modal show={show} onHide={handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
+            <Modal.Header closeButton>
+                <Modal.Title>Add Spice</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <div className='add-form'>
+                    <SpiceForm handleCreateSpice={handleCreateSpice} handleClose={handleClose}/>
+                </div>
+            </Modal.Body>
+        </Modal>
 
-            <Table className="spice-table" size='sm'>
-                <tbody>
-                    {savedSpices.map((savedSpice, index) => {
-                        return (
-                            <div>
-                                <tr>
-                                    <Spice
-                                        savedSpice={savedSpice}
-                                        key={index}
-                                        />
-                                </tr>
-                            </div>
-                        )
-                    })}
-                </tbody>
-            </Table>
+        <div id='add-box'>
+            <button onClick={() => handleShow()} id = 'add-random'>Add New</button><br/>
+        </div>
+
+        <Table>
+            <thead>
+                <tr>
+                    <th>Spice</th>
+                    <th>Category</th>
+                    <th>Date Purchased</th>
+                </tr>
+            </thead>
+            <tbody>
+                {savedSpices.map((savedSpice) => {
+                    return (
+                        <Spice
+                            savedSpice={savedSpice}
+                            key={savedSpice.id}
+                            handleDeleteSpice={handleDeleteSpice}
+                            />
+                    )
+                })}
+            </tbody>
+        </Table>
         </>
-    )
+)
 }
 
 
