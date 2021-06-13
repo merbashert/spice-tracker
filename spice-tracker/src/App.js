@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import Spice from './Components/Spice'
 import Table from 'react-bootstrap/Table';
 import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/button';
+
 import SpiceForm from './Components/Spice_Form'
 
 import './Components/Spices.css';
@@ -83,16 +85,15 @@ const App = props => {
             </Modal.Body>
         </Modal>
 
-        <div id='add-box'>
-            <button onClick={() => handleShow()} id = 'add-spice'>Add New</button><br/>
-        </div>
+            <Button variant="outline-success" onClick={() => handleShow()} id = 'add-spice'>Add New</Button>
 
-        <Table>
+        <Table striped>
             <thead>
                 <tr>
                     <th>Spice</th>
                     <th>Category</th>
                     <th>Date Purchased</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>

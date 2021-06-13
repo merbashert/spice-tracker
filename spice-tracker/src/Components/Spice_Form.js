@@ -44,8 +44,8 @@ const SpiceForm = props =>  {
         <input type="date" id="date" value={date} onChange={e => setDate(e.target.value)}/>
         </label>
         <br/>
-        <button type="submit" onClick={props.handleClose} size="sm">Put in the Cabinet</button>
-        <button onClick={props.handleClose} size="sm">Cancel</button>
+        <Button variant="outline-success" type="submit" onClick={props.handleClose} size="sm" className="modal-button">Put in the Cabinet</Button>
+        <Button variant="outline-success" onClick={props.handleClose} size="sm">Cancel</Button>
         </form>
     )
 }
