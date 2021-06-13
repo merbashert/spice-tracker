@@ -14,7 +14,7 @@ const App = props => {
     if (process.env.NODE_ENV === 'development') {
         baseUrl = 'http://localhost:8888'
     } else {
-        baseUrl = 'https://bingetracker.herokuapp.com'
+        baseUrl = 'https://spice-tracker-back.herokuapp.com'
     }
 
     const[savedSpices, setSavedSpices] = useState([])
