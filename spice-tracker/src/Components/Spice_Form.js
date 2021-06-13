@@ -25,7 +25,7 @@ const SpiceForm = props =>  {
     return (
         <form onSubmit={handleSubmit}>
         <label>
-        Spice:
+        Spice: 
         <input type="text" id="name" value={name} onChange={e => setName(e.target.value)} required/>
         </label>
         <br/>

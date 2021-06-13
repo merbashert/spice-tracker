@@ -1,6 +1,6 @@
 
 import React from 'react'
-import button from 'react-bootstrap/button';
+import Button from 'react-bootstrap/button';
 
 
 const Spice = props => {
@@ -13,7 +13,7 @@ const Spice = props => {
         <td className='spice-details'>{props.savedSpice.category}</td>
         <td className = 'spice-box'>{props.savedSpice.date_purchased}</td>
         <td className='spice-buttons'>
-            <button onClick={(e) => {if (window.confirm(`Definitely delete ${props.savedSpice.name}?`)) props.handleDeleteSpice(props.savedSpice.id)}}>Delete</button></td>
+            <Button variant="outline-success" onClick={(e) => {if (window.confirm(`Definitely delete ${props.savedSpice.name}?`)) props.handleDeleteSpice(props.savedSpice.id)}}>Delete</Button></td>
         </tr>
 
     )

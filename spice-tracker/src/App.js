@@ -87,7 +87,7 @@ const App = props => {
 
             <Button variant="outline-success" onClick={() => handleShow()} id = 'add-spice'>Add New</Button>
 
-        <Table striped>
+        <Table striped size='sm'>
             <thead>
                 <tr>
                     <th>Spice</th>
