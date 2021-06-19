@@ -3,9 +3,10 @@ import Button from 'react-bootstrap/button';
 
 
 const SpiceForm = props =>  {
+
     const [name, setName] = useState('')
     const [category, setCategory] = useState('')
-    const [date, setDate] = useState('')
+    const [date, setDate] = useState()
 
 
     const handleSubmit = (e) => {
@@ -25,7 +26,7 @@ const SpiceForm = props =>  {
     return (
         <form onSubmit={handleSubmit}>
         <label>
-        Spice: 
+        Spice:
         <input type="text" id="name" value={name} onChange={e => setName(e.target.value)} required/>
         </label>
         <br/>

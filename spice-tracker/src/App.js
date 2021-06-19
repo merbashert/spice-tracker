@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/button';
 
 import SpiceForm from './Components/Spice_Form'
+import SpiceEdit from './Components/Spice_Edit'
 
 import './Components/Spices.css';
 
@@ -54,6 +55,19 @@ const App = props => {
         .catch(err=>console.log(err))
     }
 
+    const handleUpdateSpice = (updateData) => {
+        fetch(`${baseUrl}/spices/${updateData.id}`, {
+            body: JSON.stringify(updateData),
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        }).then(updatedSpice => {
+            fetchSpices()
+        }).catch(err=>console.log(err))
+    }
+
     const handleDeleteSpice = (id) => {
         fetch(`${baseUrl}/spices/${id}`, {
             method: 'DELETE',
@@ -79,13 +93,23 @@ const App = props => {
                 <Modal.Title>Add Spice</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <div className='add-form'>
+                <div className='form'>
                     <SpiceForm handleCreateSpice={handleCreateSpice} handleClose={handleClose}/>
                 </div>
             </Modal.Body>
         </Modal>
 
-            <Button variant="outline-success" onClick={() => handleShow()} id = 'add-spice'>Add New</Button>
+        <Modal show={show} onHide={handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
+            <Modal.Header closeButton>
+                <Modal.Title>Edit Spice</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <SpiceEdit savedSpice={props.savedSpice} handleUpdateSpice={handleUpdateSpice} handleClose={handleClose}/>
+            </Modal.Body>
+        </Modal>
+
+
+        <Button variant="outline-success" onClick={() => handleShow()} id = 'add-spice'>Add New</Button>
 
         <Table striped size='sm'>
             <thead>
