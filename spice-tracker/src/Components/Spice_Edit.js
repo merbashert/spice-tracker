@@ -3,9 +3,9 @@ import Button from 'react-bootstrap/Button';
 
 const SpiceEdit = props => {
 
-    const [name, setName] = useState(props.spiceData.name)
-    const [category, setCategory] = useState(props.spiceData.category)
-    const [date, setDate] = useState(props.spiceData.date?props.spiceData.date:'')
+    const [name, setName] = useState(props.savedSpice.name)
+    const [category, setCategory] = useState(props.savedSpice.category)
+    const [date, setDate] = useState(props.savedSpice.date?props.savedSpice.date:'')
 
 
     const handleSubmit = (e) => {
@@ -41,6 +41,7 @@ const SpiceEdit = props => {
             Date:
             <input type="text" placeholder="Date" id="date" value={date} onChange={e => setDate(e.target.value)}/>
             </label><br/>
+        
             <Button type="submit" onClick={props.handleClose}>Apply Changes</Button>
             <Button onClick={props.handleClose}>Cancel</Button>
             </form>
