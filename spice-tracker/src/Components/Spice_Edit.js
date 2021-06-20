@@ -6,7 +6,6 @@ const SpiceEdit = props => {
     const [name, setName] = useState(props.savedSpice.name)
     const [category, setCategory] = useState(props.savedSpice.category)
     const [date, setDate] = useState(props.savedSpice.date)
-    const [id, setId] = useState(props.savedSpice.id)
 
 
     const handleSubmit = (e) => {

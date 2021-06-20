@@ -14,3 +14,7 @@ body {
 #category {
     height: 30px;
 }
+
+.spice-buttons Button {
+    margin: 5px;
+}
