@@ -18,7 +18,7 @@ const Spice = props => {
     }
 
     const handleUpdateSpice = (updateData) => {
-        fetch(`${props.baseUrl}/spices/${updateData.id}`, {
+        fetch(`${props.baseUrl}/spices/${props.savedSpice.id}`, {
             body: JSON.stringify(updateData),
             method: 'PUT',
             headers: {

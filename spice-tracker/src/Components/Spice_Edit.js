@@ -5,7 +5,8 @@ const SpiceEdit = props => {
 
     const [name, setName] = useState(props.savedSpice.name)
     const [category, setCategory] = useState(props.savedSpice.category)
-    const [date, setDate] = useState(props.savedSpice.date?props.savedSpice.date:'')
+    const [date, setDate] = useState(props.savedSpice.date)
+    const [id, setId] = useState(props.savedSpice.id)
 
 
     const handleSubmit = (e) => {
@@ -39,9 +40,9 @@ const SpiceEdit = props => {
             </label><br/>
             <label>
             Date:
-            <input type="text" placeholder="Date" id="date" value={date} onChange={e => setDate(e.target.value)}/>
+            <input type="date" placeholder="Date" id="date" value={date} onChange={e => setDate(e.target.value)}/>
             </label><br/>
-        
+
             <Button type="submit" onClick={props.handleClose}>Apply Changes</Button>
             <Button onClick={props.handleClose}>Cancel</Button>
             </form>

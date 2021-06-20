@@ -107,6 +107,7 @@ const App = props => {
                         <Spice
                             savedSpice={savedSpice}
                             key={savedSpice.id}
+                            fetchSpices={fetchSpices}
                             handleDeleteSpice={handleDeleteSpice}
                             baseUrl={baseUrl}
                             />
