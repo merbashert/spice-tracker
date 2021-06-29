@@ -18,3 +18,11 @@ body {
 .spice-buttons Button {
     margin: 5px;
 }
+
+.spice-date td {
+    text-align: center;
+}
+
+#spice-table td {
+    vertical-align: middle;
+}
