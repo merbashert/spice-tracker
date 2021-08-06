@@ -91,7 +91,7 @@ const App = props => {
 
 
         <Button variant="outline-success" onClick={() => handleShow()} id = 'add-spice'>Add New</Button>
-
+{savedSpices.length > 0 ?
         <Table striped size='sm' id="spice-table">
             <thead>
                 <tr>
@@ -115,6 +115,9 @@ const App = props => {
                 })}
             </tbody>
         </Table>
+    :
+    <h3 className='loading'>Loading...</h3>
+}
         </>
 )
 }
