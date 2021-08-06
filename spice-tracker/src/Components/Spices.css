@@ -26,3 +26,10 @@ body {
 #spice-table td {
     vertical-align: middle;
 }
+
+.loading {
+    position: relative;
+    top: 100px;
+    left: 20px;
+    background-color: transparent;
+}
