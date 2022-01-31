@@ -27,7 +27,7 @@ const SpiceForm = props =>  {
         <form onSubmit={handleSubmit}>
         <label>
         Spice:
-        <input type="text" id="name" value={name} onChange={e => setName(e.target.value)} required/>
+        <input type="text" id="name" value={name} onChange={e => setName(e.target.value.toLowerCase())} required/>
         </label>
         <br/>
         <label>
