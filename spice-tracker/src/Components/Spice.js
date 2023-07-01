@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import SpiceEdit from './Spice_Edit'
+import logo from './logo.png'
 
 const Spice = props => {
 
@@ -19,8 +20,11 @@ const Spice = props => {
 
     const handleShow = () => {
         setShow(true)
-        console.log(date);
+        console.log(url);
     }
+
+
+    const url = `https://shop.wegmans.com/search?search_term=${props.savedSpice.name}`
 
     const shortened_expiration_date = props.savedSpice.expiration_date.slice(0, -3);
 
@@ -55,8 +59,16 @@ const Spice = props => {
                 <td className = 'spice-date'>{shortened_expiration_date}</td> : <td className = 'past-spice-date'>{shortened_expiration_date}</td>}
 
             <td className='spice-buttons'>
-                <Button variant="outline-success" onClick={handleShow}>Edit</Button>
-                <Button variant="outline-success" onClick={(e) => {if (window.confirm(`Definitely delete ${props.savedSpice.name}?`)) props.handleDeleteSpice(props.savedSpice.id)}}>Delete</Button></td>
+
+                <a href = {url}  target="_blank" rel="noreferrer"><img src = {logo}/></a>
+                <Button variant="outline-success" onClick={handleShow}><span className="lnr lnr-pencil"></span></Button>
+
+
+                    <Button variant="outline-success" onClick={() => {
+                                if (window.confirm('Definitely delete?')) props.handleDeleteSpice(props.savedSpice.id)
+                            }}><span className="lnr lnr-trash"></span></Button>
+                    </td>
+
             </tr>
             </>
 
