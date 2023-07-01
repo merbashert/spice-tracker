@@ -97,8 +97,8 @@ const App = props => {
             <thead>
                 <tr>
                     <th>Spice</th>
-                    <th>Category</th>
                     <th>Expiration Date</th>
+                    <th>Action</th>
                     <th></th>
                 </tr>
             </thead>

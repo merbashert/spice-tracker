@@ -62,7 +62,7 @@ const Spice = props => {
 
             <td className='spice-buttons'>
 
-                <Button variant = "outline-success"><a href = {url}  target="_blank" rel="noreferrer"><img src = {logo}/></a></Button>
+                <Button variant = "outline-success"><a href = 'http://www.wegmans.com'  target="_blank" rel="noreferrer"><img src = {logo}/></a></Button>
                 <Button variant="outline-success" onClick={handleShow}><img src = {pencil}/></Button>
 
 
