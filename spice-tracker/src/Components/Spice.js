@@ -9,6 +9,10 @@ const Spice = props => {
 
     const [show, setShow] = useState(false);
 
+    const today = new Date(),
+   date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+
+
     const handleClose = () => {
         setShow(false)
     }
@@ -31,7 +35,7 @@ const Spice = props => {
     }
 
     return (
-<>
+        <>
         <Modal show={show} onHide={handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
             <Modal.Header closeButton>
                 <Modal.Title>Edit Spice</Modal.Title>
@@ -42,14 +46,17 @@ const Spice = props => {
         </Modal>
 
         <tr>
-        <td className='spice-name'>{props.savedSpice.name}</td>
-        <td className='spice-category'>{props.savedSpice.category}</td>
-        <td className = 'spice-date'>{props.savedSpice.date_purchased}</td>
-        <td className='spice-buttons'>
-            <Button variant="outline-success" onClick={handleShow}>Edit</Button>
-            <Button variant="outline-success" onClick={(e) => {if (window.confirm(`Definitely delete ${props.savedSpice.name}?`)) props.handleDeleteSpice(props.savedSpice.id)}}>Delete</Button></td>
-        </tr>
-    </>
+            <td className='spice-name'>{props.savedSpice.name}</td>
+            <td className='spice-category'>{props.savedSpice.category}</td>
+
+            {props.savedSpice.expiration_date < date ?
+                <td className = 'spice-date'>{props.savedSpice.expiration_date}</td> : <td className = 'past-spice-date'>{props.savedSpice.expiration_date}</td>}
+
+            <td className='spice-buttons'>
+                <Button variant="outline-success" onClick={handleShow}>Edit</Button>
+                <Button variant="outline-success" onClick={(e) => {if (window.confirm(`Definitely delete ${props.savedSpice.name}?`)) props.handleDeleteSpice(props.savedSpice.id)}}>Delete</Button></td>
+            </tr>
+            </>
 
     )
 }

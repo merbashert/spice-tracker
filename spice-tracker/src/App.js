@@ -17,6 +17,7 @@ const App = props => {
         baseUrl = 'https://meredithbashert.com/spicetracker-backend'
     }
 
+
     const[savedSpices, setSavedSpices] = useState([])
 
     const [show, setShow] = useState(false);
@@ -97,7 +98,7 @@ const App = props => {
                 <tr>
                     <th>Spice</th>
                     <th>Category</th>
-                    <th>Date Purchased</th>
+                    <th>Expiration Date</th>
                     <th></th>
                 </tr>
             </thead>

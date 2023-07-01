@@ -23,6 +23,15 @@ body {
     text-align: center;
 }
 
+.spice-date {
+    font-style:normal;
+}
+
+.past-spice-date {
+    background-color: red;
+    font-style: italic;
+}
+
 #spice-table td {
     vertical-align: middle;
 }
