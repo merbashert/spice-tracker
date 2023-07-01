@@ -4,6 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import SpiceEdit from './Spice_Edit'
 import logo from './logo.png'
+import pencil from './pencil.svg'
+import trash from './trash.svg'
 
 const Spice = props => {
 
@@ -60,13 +62,13 @@ const Spice = props => {
 
             <td className='spice-buttons'>
 
-                <a href = {url}  target="_blank" rel="noreferrer"><img src = {logo}/></a>
-                <Button variant="outline-success" onClick={handleShow}><span className="lnr lnr-pencil"></span></Button>
+                <Button variant = "outline-success"><a href = {url}  target="_blank" rel="noreferrer"><img src = {logo}/></a></Button>
+                <Button variant="outline-success" onClick={handleShow}><img src = {pencil}/></Button>
 
 
                     <Button variant="outline-success" onClick={() => {
                                 if (window.confirm('Definitely delete?')) props.handleDeleteSpice(props.savedSpice.id)
-                            }}><span className="lnr lnr-trash"></span></Button>
+                            }}><img src = {trash}/></Button>
                     </td>
 
             </tr>
