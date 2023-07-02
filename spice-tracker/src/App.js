@@ -17,6 +17,8 @@ const App = props => {
         baseUrl = 'https://meredithbashert.com/spicetracker-backend'
     }
 
+    const today = new Date(),
+   date = today.getFullYear() + '-' + (today.getMonth < 10 ? (today.getMonth() + 1):'0'+today.getMonth()) + '-' + today.getDate();
 
     const[savedSpices, setSavedSpices] = useState([])
 
@@ -111,6 +113,7 @@ const App = props => {
                             fetchSpices={fetchSpices}
                             handleDeleteSpice={handleDeleteSpice}
                             baseUrl={baseUrl}
+                            date={date}
                             />
                     )
                 })}
