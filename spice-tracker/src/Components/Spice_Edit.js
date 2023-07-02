@@ -4,22 +4,19 @@ import Button from 'react-bootstrap/Button';
 const SpiceEdit = props => {
 
     const [name, setName] = useState(props.savedSpice.name)
-    const [category, setCategory] = useState(props.savedSpice.category)
-    const [date, setDate] = useState(props.savedSpice.date)
+    const [expiration_date, setExpiration_Date] = useState(props.savedSpice.expiration_date)
 
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const spiceinfo = {
             name:name,
-            category:category,
-            date:date,
+            expiration_date:expiration_date
 
         }
         props.handleUpdateSpice(spiceinfo)
         setName('')
-        setCategory('')
-        setDate('')
+        setExpiration_Date('')
         }
 
         return (
@@ -29,17 +26,9 @@ const SpiceEdit = props => {
             Name:
             <input type="text" id="name" value={name} onChange={e => setName(e.target.value)}/>
             </label><br/>
-            <label id="category">
-            Main Color:
-            <select value={category} onChange={e => setCategory(e.target.value)} id="category">
-            <option category="basics">basics</option>
-            <option category="novelty">novelty</option>
-            <option category="spice blends">spice blends</option>
-            </select>
-            </label><br/>
             <label>
             Date:
-            <input type="date" placeholder="Date" id="date" value={date} onChange={e => setDate(e.target.value)}/>
+            <input type="date" placeholder="Date" id="date" value={expiration_date} onChange={e => setExpiration_Date(e.target.value)}/>
             </label><br/>
 
             <Button type="submit" onClick={props.handleClose}>Apply Changes</Button>
