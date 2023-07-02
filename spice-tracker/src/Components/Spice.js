@@ -12,8 +12,7 @@ const Spice = props => {
 
     const [show, setShow] = useState(false);
 
-    const today = new Date(),
-   date = today.getFullYear() + '-' + (today.getMonth < 10 ? (today.getMonth() + 1):'0'+today.getMonth()) + '-' + today.getDate();
+    const url = `https://shop.wegmans.com/search?search_term=${props.savedSpice.name}`;
 
 
     const handleClose = () => {
@@ -22,13 +21,8 @@ const Spice = props => {
 
     const handleShow = () => {
         setShow(true)
-        console.log(url);
     }
 
-
-    const url = `https://shop.wegmans.com/search?search_term=${props.savedSpice.name}`
-
-    const shortened_expiration_date = props.savedSpice.expiration_date.slice(0, -3);
 
     const handleUpdateSpice = (updateData) => {
         fetch(`${props.baseUrl}/spices/${props.savedSpice.id}`, {
@@ -57,25 +51,31 @@ const Spice = props => {
         <tr>
             <td className='spice-name'>{props.savedSpice.name}</td>
 
-            {props.savedSpice.expiration_date > date ?
-                <td className = 'spice-date'>{shortened_expiration_date}</td> : <td className = 'past-spice-date'>{shortened_expiration_date}</td>}
+            {props.savedSpice.expiration_date > props.date ?
+                <td className = 'spice-date'>{props.savedSpice.expiration_date.slice(0, -3)}</td>
+                :
+                <td className = 'past-spice-date'>{props.savedSpice.expiration_date.slice(0, -3)}
+                </td>}
 
-            <td className='spice-buttons'>
-
-                <Button variant = "outline-success"><a href = 'http://www.wegmans.com'  target="_blank" rel="noreferrer"><img src = {logo}/></a></Button>
-                <Button variant="outline-success" onClick={handleShow}><img src = {pencil}/></Button>
+                <td className='spice-buttons'>
 
 
-                    <Button variant="outline-success" onClick={() => {
+                    <a href = {url}  target="_blank" rel="noreferrer">
+                        <Button variant = "outline-success"><img src = {logo} alt='logo'/></Button></a>
+
+                        <Button variant="outline-success" onClick={handleShow}><img src = {pencil} alt='pencil'/></Button>
+
+
+                        <Button variant="outline-success" onClick={() => {
                                 if (window.confirm('Definitely delete?')) props.handleDeleteSpice(props.savedSpice.id)
-                            }}><img src = {trash}/></Button>
-                    </td>
+                            }}><img src = {trash} alt='trash'/></Button>
+                        </td>
 
-            </tr>
-            </>
+                    </tr>
+                    </>
 
-    )
-}
+            )
+        }
 
 
-export default Spice
+        export default Spice
